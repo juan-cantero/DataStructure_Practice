@@ -1,0 +1,11 @@
+C:\Users\juanqui\source\repos\Array\Array\bin\Debug\netcoreapp3.1\MyArray.exe
+C:\Users\juanqui\source\repos\Array\Array\bin\Debug\netcoreapp3.1\MyArray.deps.json
+C:\Users\juanqui\source\repos\Array\Array\bin\Debug\netcoreapp3.1\MyArray.runtimeconfig.json
+C:\Users\juanqui\source\repos\Array\Array\bin\Debug\netcoreapp3.1\MyArray.runtimeconfig.dev.json
+C:\Users\juanqui\source\repos\Array\Array\bin\Debug\netcoreapp3.1\MyArray.dll
+C:\Users\juanqui\source\repos\Array\Array\bin\Debug\netcoreapp3.1\MyArray.pdb
+C:\Users\juanqui\source\repos\Array\Array\obj\Debug\netcoreapp3.1\MyArray.csprojAssemblyReference.cache
+C:\Users\juanqui\source\repos\Array\Array\obj\Debug\netcoreapp3.1\MyArray.AssemblyInfoInputs.cache
+C:\Users\juanqui\source\repos\Array\Array\obj\Debug\netcoreapp3.1\MyArray.AssemblyInfo.cs
+C:\Users\juanqui\source\repos\Array\Array\obj\Debug\netcoreapp3.1\MyArray.dll
+C:\Users\juanqui\source\repos\Array\Array\obj\Debug\netcoreapp3.1\MyArray.pdb
