@@ -11,22 +11,21 @@ namespace DataStructure_Practice_Tests
         public void Setup()
         {
             _array = new Array<int>();
+            _array.Add(1);
+            _array.Add(2);
+            _array.Add(3);
         }
 
         [Test]
         public void Add_WhenCalled_AddElementIntoArray()
         {
-            _array.Add(1);
             int expected = _array.GetElementAt(0);
             Assert.That(expected,Is.EqualTo(1));
         }
 
         [Test]
-        public void RemoveAt_WhenCalled_REmoveElementAtPosition()
+        public void RemoveAt_WhenCalled_RemoveElementAtPosition()
         {
-            _array.Add(1);
-            _array.Add(2);
-            _array.Add(3);
 
             _array.RemoveAt(1);
 
@@ -34,6 +33,24 @@ namespace DataStructure_Practice_Tests
 
             Assert.That(expected, Is.EquivalentTo(new[] { 1, 3 }));
 
+        }
+
+        [Test]
+        public void IndexOF_WhenCalled_ReturnTheIndexOfTheElementPassed()
+        {
+            var indexOfElement = _array.IndexOf(2);
+            Assert.That(indexOfElement, Is.EqualTo(1));
+
+
+        }
+
+        [Test]
+        public void InsertAt_WhenCalled_InsertElementInGivenPosition()
+        {
+            _array.InsertAt(3,5);
+
+
+            Assert.That(_array.GetItems(), Is.EquivalentTo(new[] { 1, 2, 3, 5 }));
         }
     }
 }
