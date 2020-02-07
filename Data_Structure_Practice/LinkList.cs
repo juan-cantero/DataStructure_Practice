@@ -9,7 +9,7 @@ namespace Datastructure_Practice
     {
         public class Node<E>
         {
-           internal E element;
+           public E Element { get; set; }
            internal Node<E> next;
 
             public Node()
@@ -20,7 +20,7 @@ namespace Datastructure_Practice
             public Node(E element) : base()
             {
 
-                this.element = element;
+                this.Element = element;
             }
 
         }
@@ -54,15 +54,20 @@ namespace Datastructure_Practice
 
             do
             {
-                yield return Head.element;
+                yield return Head.Element;
                 Head = Head.next;
             } while (Head != null);
+        }
+
+        public bool IsEmpty()
+        {
+            return Size == 0;
         }
 
         public void AddFirst(E element)
         {
             var nodeToBeAdded = CreateNodeToAdd(element);
-            if (Size == 0) { Head = Tail = nodeToBeAdded; }
+            if (IsEmpty()) { Head = Tail = nodeToBeAdded; }
             else { nodeToBeAdded.next = Head; Head = nodeToBeAdded; }
             Size++;
         }
@@ -70,7 +75,7 @@ namespace Datastructure_Practice
         public void AddLast(E element)
         {
             Node<E> nodeToAdd = CreateNodeToAdd(element);
-            if (Size == 0)
+            if (IsEmpty())
             {
                 AddFirst(element);
             }
@@ -88,12 +93,92 @@ namespace Datastructure_Practice
             var pointer = Head;
             while (pointer != null)
             {
-                if (pointer.element.Equals(element)) return i;
+                if (pointer.Element.Equals(element)) return i;
                 pointer = pointer.next;
                 i++;
             }
             throw new Exception("no such element") ;
 
         }
+
+        public bool Contains(E element)
+        {
+            var pointer = Head;
+            while (pointer != null)
+            {
+                if (pointer.Element.Equals(element)) return true;
+                pointer = pointer.next;
+            }
+            return false;
+        }
+
+        public void RemoveFirst()
+        {
+            if (IsEmpty()) 
+                throw new InvalidOperationException("The list is empty");
+            var temp = Head;
+            Head = Head.next;
+            temp.next = null;
+            Size--;
+        }
+
+        public void RemoveLast()
+        {
+            if (IsEmpty())
+                throw new InvalidOperationException("The list is empty");
+            var pointer = Head;
+            if (Head == Tail)
+            {
+                Head = Tail = null;
+                return;
+            }
+            while (!pointer.next.Element.Equals(Tail.Element))
+            {
+                pointer = pointer.next;
+            }
+            Tail = pointer;
+            Tail.next = null;
+            Size--;
+        }
+
+        public void ReverseList()
+        {
+            if (Size == 1) return;
+            var prev = Head;
+            var current = prev.next;
+            while (current != null)
+            {
+                var next = current.next;
+                current.next = prev;
+                prev = current;
+                current = next;
+            }
+            var temp = Head;
+            Head = Tail;
+            Tail = temp;
+            Tail.next = null;
+        }
+
+        public E GetKthFromTheEnd(int k)
+        {
+            if (k < 0) 
+                throw new ArgumentOutOfRangeException("It should be a positive number");
+
+            var left = Head;
+            var right = Head;
+
+            for (int i = 0; i < k; i++)  
+                right = right.next;
+
+            while (right != Tail)
+            {
+                left = left.next;
+                right = right.next;
+            }
+
+            return left.Element;
+        }
+
+
     }
 }
