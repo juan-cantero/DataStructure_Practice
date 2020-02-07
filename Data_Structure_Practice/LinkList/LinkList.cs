@@ -7,17 +7,17 @@ namespace Datastructure_Practice
    
     public class LinkList<E>
     {
-        public class Node<E>
+        public class Node<T>
         {
-           public E Element { get; set; }
-           internal Node<E> next;
+           public T Element { get; set; }
+           internal Node<T> next;
 
             public Node()
             {
                 next = null;
 
             }
-            public Node(E element) : base()
+            public Node(T element) : base()
             {
 
                 this.Element = element;
